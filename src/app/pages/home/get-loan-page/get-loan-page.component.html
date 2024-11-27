@@ -1,1 +1,281 @@
-<p>get-loan-page works!</p>
+<div
+  class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
+>
+  <h2 class="text-title-md2 font-bold text-black ">
+    Solicitar Prestamo
+  </h2>
+
+  <nav>
+    <ol class="flex items-center text-gray-500 gap-2">
+      <li>
+        <a class="font-medium" href="#">Operaciones /</a>
+      </li>
+      <li class="font-medium text-emerald-600">Solicitar Prestamo</li>
+    </ol>
+  </nav>
+</div>
+
+<div class="grid grid-cols-1 gap-9 sm:grid-cols-2">
+  <div class="flex flex-col gap-9">
+    <div
+      class="rounded-sm border border-stroke bg-white shadow-default"
+    >
+      <div
+        class="border-b border-stroke px-6.5 py-4 "
+      >
+        <h3 class="font-medium text-black ">
+          Datos Personales
+        </h3>
+      </div>
+      <form>
+        <div class="p-6.5">
+          <div class="mb-4.5 flex flex-col gap-6 xl:flex-row">
+            <div class="w-full xl:w-1/2">
+              <label
+                class="mb-3 block text-sm font-medium text-black "
+              >
+                Nombres
+              </label>
+              <input
+                type="text"
+                placeholder="Ingrese su nombre"
+                class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-emerald-600  active:border-emerald-600  disabled:cursor-default disabled:bg-whiter "
+              />
+            </div>
+
+            <div class="w-full xl:w-1/2">
+              <label
+                class="mb-3 block text-sm font-medium text-black"
+              >
+                Apellidos
+              </label>
+              <input
+                type="text"
+                placeholder="Ingrese su apellido"
+                class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-emerald-600  active:border-emerald-600  disabled:cursor-default disabled:bg-whiter  "
+              />
+            </div>
+          </div>
+
+          <div class="mb-4.5">
+            <label
+              class="mb-3 block text-sm font-medium text-black"
+            >
+              Correo Electrónico <span class="text-meta-1">*</span>
+            </label>
+            <input
+              type="email"
+              placeholder="Ingrese su dirección de correo electrónico"
+              class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-emerald-600  active:border-emerald-600  disabled:cursor-default disabled:bg-whiter  "
+            />
+          </div>
+
+          <div class="mb-4.5 flex flex-col gap-6 xl:flex-row">
+            <div class="w-full xl:w-1/2">
+              <label
+                class="mb-3 block text-sm font-medium text-black "
+              >
+                DNI
+              </label>
+              <input
+                type="text"
+                placeholder="Ingrese su DNI"
+                class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-emerald-600  active:border-emerald-600  disabled:cursor-default disabled:bg-whiter "
+              />
+            </div>
+
+            <div class="w-full xl:w-1/2">
+              <label
+                class="mb-3 block text-sm font-medium text-black"
+              >
+                Celular
+              </label>
+              <input
+                type="text"
+                placeholder="Ingrese su número de celular"
+                class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-emerald-600  active:border-emerald-600  disabled:cursor-default disabled:bg-whiter  "
+              />
+            </div>
+          </div>
+
+          <div class="mb-6">
+            <label
+              class="mb-3 block text-sm font-medium text-black "
+            >
+              Dirección
+            </label>
+            <textarea
+              rows="3"
+              placeholder="Ingresa tu dirección"
+              class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-emerald-600  active:border-emerald-600  disabled:cursor-default disabled:bg-whiter  "
+            ></textarea>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="flex flex-col gap-9">
+    <div
+      class="rounded-sm border border-stroke bg-white shadow-default "
+    >
+      <div
+        class="border-b border-stroke px-6.5 py-4 "
+      >
+        <h3 class="font-medium text-black ">
+          Datos para el Préstamo
+        </h3>
+      </div>
+      <form action="#">
+        <div class="p-6.5">
+          <div class="mb-4.5">
+            <label
+              class="mb-3 block text-sm font-medium text-black "
+            >
+              Situación Laboral
+            </label>
+            <div
+              class="relative z-20 bg-transparent "
+            >
+              <select
+                class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent px-5 py-3 outline-none transition focus:border-emerald-600  active:border-emerald-600  "
+              >
+                <option value="" class="text-body">
+                  Type your subject
+                </option>
+                <option value="" class="text-body">USA</option>
+                <option value="" class="text-body">UK</option>
+                <option value="" class="text-body">Canada</option>
+              </select>
+              <span
+                class="absolute right-4 top-1/2 z-30 -translate-y-1/2"
+              >
+                            <svg
+                              class="fill-current"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g opacity="0.8">
+                                <path
+                                  fill-rule="evenodd"
+                                  clip-rule="evenodd"
+                                  d="M5.29289 8.29289C5.68342 7.90237 6.31658 7.90237 6.70711 8.29289L12 13.5858L17.2929 8.29289C17.6834 7.90237 18.3166 7.90237 18.7071 8.29289C19.0976 8.68342 19.0976 9.31658 18.7071 9.70711L12.7071 15.7071C12.3166 16.0976 11.6834 16.0976 11.2929 15.7071L5.29289 9.70711C4.90237 9.31658 4.90237 8.68342 5.29289 8.29289Z"
+                                  fill=""
+                                ></path>
+                              </g>
+                            </svg>
+                          </span>
+            </div>
+          </div>
+
+          <div class="mb-4.5">
+            <label
+              class="mb-3 block text-sm font-medium text-black "
+            >
+              Nombre de la Empresa
+            </label>
+            <input
+              type="email"
+              placeholder="Ingrese el nombre de la empresa"
+              class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-emerald-600  active:border-emerald-600  disabled:cursor-default disabled:bg-whiter  "
+            />
+          </div>
+
+          <div class="mb-4.5">
+            <label
+              class="mb-3 block text-sm font-medium text-black "
+            >
+              Cargo
+            </label>
+            <input
+              type="text"
+              placeholder="Ingrsa su cargo"
+              autocomplete="password"
+              class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-emerald-600  active:border-emerald-600  disabled:cursor-default disabled:bg-whiter  "
+            />
+          </div>
+
+          <div class="mb-5.5">
+            <label
+              class="mb-3 block text-sm font-medium text-black "
+            >
+              Ingreso mensual
+            </label>
+            <input
+              type="text"
+              placeholder="Ingrese su ingreso mensual"
+              autocomplete="re-enter-password"
+              class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-emerald-600  active:border-emerald-600  disabled:cursor-default disabled:bg-whiter  "
+            />
+          </div>
+
+          <div class="mb-5.5">
+            <label
+              class="mb-3 block text-sm font-medium text-black "
+            >
+              Ingrese el monto del préstamo
+            </label>
+            <input
+              type="text"
+              placeholder="Ingrese su ingrese del prestamo"
+              autocomplete="re-enter-password"
+              class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-emerald-600  active:border-emerald-600  disabled:cursor-default disabled:bg-whiter  "
+            />
+          </div>
+
+          <div class="mb-4.5">
+            <label
+              class="mb-3 block text-sm font-medium text-black "
+            >
+              Plazo de pagos
+            </label>
+            <div
+              class="relative z-20 bg-transparent "
+            >
+              <select
+                class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent px-5 py-3 outline-none transition focus:border-emerald-600  active:border-emerald-600  "
+              >
+                <option value="" class="text-body">
+                  Type your subject
+                </option>
+                <option value="" class="text-body">USA</option>
+                <option value="" class="text-body">UK</option>
+                <option value="" class="text-body">Canada</option>
+              </select>
+              <span
+                class="absolute right-4 top-1/2 z-30 -translate-y-1/2"
+              >
+                            <svg
+                              class="fill-current"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g opacity="0.8">
+                                <path
+                                  fill-rule="evenodd"
+                                  clip-rule="evenodd"
+                                  d="M5.29289 8.29289C5.68342 7.90237 6.31658 7.90237 6.70711 8.29289L12 13.5858L17.2929 8.29289C17.6834 7.90237 18.3166 7.90237 18.7071 8.29289C19.0976 8.68342 19.0976 9.31658 18.7071 9.70711L12.7071 15.7071C12.3166 16.0976 11.6834 16.0976 11.2929 15.7071L5.29289 9.70711C4.90237 9.31658 4.90237 8.68342 5.29289 8.29289Z"
+                                  fill=""
+                                ></path>
+                              </g>
+                            </svg>
+                          </span>
+            </div>
+          </div>
+
+          <button
+            class="flex w-full justify-center rounded bg-emerald-600 p-3 font-medium text-gray hover:bg-opacity-90"
+          >
+            Solicitar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
