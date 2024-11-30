@@ -18,19 +18,9 @@ export class OperationsPageComponent {
       route: '/brc/loan'
     },
     {
-      title: 'Invierte tu dinero',
-      description: 'Invierte tu dinero en préstamos a personas y empresas.',
-      route: ''
-    },
-    {
       title: 'Paga tus deudas',
       description: 'Paga tus deudas con un préstamo personal.',
-      route: ''
+      route: '/brc/pay'
     },
-    {
-      title: 'Gana dinero',
-      description: 'Gana dinero prestando tu dinero a personas y empresas.',
-      route: ''
-    }
   ]
 }

@@ -3,6 +3,7 @@ import {TitlebarComponent} from "../../../components/titlebar/titlebar.component
 import {FormBuilder, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {PagoService} from "../../../services/pago.service";
 import {Pago} from "../../../interfaces/pago.interface";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-pay',
@@ -18,6 +19,8 @@ import {Pago} from "../../../interfaces/pago.interface";
 export class PayComponent {
     private form = inject(FormBuilder);
     private pagoService = inject(PagoService);
+
+    private router = inject(Router);
 
     public pagoForm = this.form.group({
         prestamoId: ['', [Validators.required]],
@@ -38,7 +41,9 @@ export class PayComponent {
         }
 
         this.pagoService.agregarPago(pago).subscribe({
-            next: () => console.log('Pago realizado con éxito'),
+            next: () => {
+                this.router.navigate(['brc/borrower-requests'])
+            },
             error: (message) => console.log('Error', message)
         })
     }
