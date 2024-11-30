@@ -23,6 +23,9 @@ export class LoanSummaryComponent implements OnInit {
 
     public pagos: Pagos[] = []
     public mensajeMora: boolean = false
+    public existePre: boolean =false
+    public idPrestamo: string = ''
+    public title: string = 'Reporte del Prestamo'
 
     private pagoService = inject(PagoService)
     private prestamoService = inject(PrestamoService)
@@ -32,6 +35,16 @@ export class LoanSummaryComponent implements OnInit {
 
     ngOnInit(): void {
         this.listarPagos()
+        this.validarRol()
+        this.idPrestamo = String(this.params.snapshot.paramMap.get('id'))
+        this.title = this.title + ' ID: ' +this.idPrestamo
+    }
+
+    validarRol(){
+        const {rolId} = JSON.parse(localStorage.getItem('user')!)
+        if(rolId === 1) {
+            this.existePre = true
+        }
     }
 
     listarPagos() {

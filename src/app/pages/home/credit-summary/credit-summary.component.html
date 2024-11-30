@@ -10,7 +10,8 @@
 
         <button
                 (click)="emitirScore()"
-                class="inline-flex items-center gap-2.5 rounded bg-emerald-600 px-5 py-2.5 font-medium text-white hover:bg-opacity-90">
+                [disabled]="estadoDoc"
+                class="inline-flex items-center gap-2.5 rounded bg-emerald-600 px-5 py-2.5 font-medium text-white hover:bg-opacity-90 disabled:opacity-50">
             Emitir Score Crediticio
         </button>
         @if(score) {
@@ -22,12 +23,14 @@
         <div class="space-x-4">
             <button
                     (click)="actualizarEstado(2)"
-                    class="inline-flex items-center gap-2.5 rounded bg-red-600 px-7.5 py-2.5 font-medium text-white hover:bg-opacity-90">
+                    [disabled]="estadoDoc"
+                    class="inline-flex items-center gap-2.5 rounded bg-red-600 px-7.5 py-2.5 font-medium text-white hover:bg-opacity-90 disabled:opacity-50">
                 Desaprobar
             </button>
             <button
                     (click)="actualizarEstado(1)"
-                    class="inline-flex items-center gap-2.5 rounded bg-primary px-7.5 py-2.5 font-medium text-white hover:bg-opacity-90">
+                    [disabled]="estadoDoc"
+                    class="inline-flex items-center gap-2.5 rounded bg-primary px-7.5 py-2.5 font-medium text-white hover:bg-opacity-90 disabled:opacity-50">
                 Aprobar
             </button>
         </div>

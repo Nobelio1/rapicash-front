@@ -25,6 +25,11 @@ export class SidebarComponent implements OnInit {
             route: 'borrower-requests',
         },
         {
+            id: 4,
+            name: 'Mis Prestamos',
+            route: 'loan-history',
+        },
+        {
             id: 3,
             name: 'Pagar Prestamo',
             route: 'pay',

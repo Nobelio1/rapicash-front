@@ -9,7 +9,8 @@
     <div class="p-4 sm:p-6 xl:p-9 text-end flex justify-between">
         <div class="flex justify-center items-center gap-2">
             <button
-                    class="inline-flex items-center gap-2.5 rounded bg-emerald-600 px-5 py-2.5 font-medium text-white hover:bg-opacity-90"
+                    [disabled]="estadoDoc"
+                    class="inline-flex items-center gap-2.5 rounded bg-emerald-600 px-5 py-2.5 font-medium text-white hover:bg-opacity-90 disabled:opacity-50"
                     (click)="verificarDocumentaion()">
                 Verificar Documentacion
             </button>
@@ -24,12 +25,16 @@
         <div class="space-x-4">
             <button
                     (click)="actualizarEstado(2)"
-                    class="inline-flex items-center gap-2.5 rounded bg-red-600 px-7.5 py-2.5 font-medium text-white hover:bg-opacity-90">
+                    [disabled]="estadoDoc"
+
+                    class="inline-flex items-center gap-2.5 rounded bg-red-600 px-7.5 py-2.5 font-medium text-white hover:bg-opacity-90 disabled:opacity-50">
                 Desaprobar
             </button>
             <button
                     (click)="actualizarEstado(1)"
-                    class="inline-flex items-center gap-2.5 rounded bg-primary px-7.5 py-2.5 font-medium text-white hover:bg-opacity-90">
+                    [disabled]="estadoDoc"
+
+                    class="inline-flex items-center gap-2.5 rounded bg-primary px-7.5 py-2.5 font-medium text-white hover:bg-opacity-90 disabled:opacity-50">
                 Aprobar
             </button>
         </div>

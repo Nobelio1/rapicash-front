@@ -87,13 +87,13 @@ const CORE_ROUTES: Routes = [
         path: 'loan-history',
         loadComponent: () => import('./loan-history/loan-history.component').then(m => m.LoanHistoryComponent),
         canActivate: [AuthGuard],
-        data: { roles: [4] }, // Solo OFICIAL DE CREDITO
+        data: { roles: [1,4] }, // Solo OFICIAL DE CREDITO
       },
       {
         path: 'lSummary/:id',
         loadComponent: () => import('./loan-summary/loan-summary.component').then(m => m.LoanSummaryComponent),
         canActivate: [AuthGuard],
-        data: { roles: [4] }, // Solo OFICIAL DE CREDITO
+        data: { roles: [1,4] }, // Solo OFICIAL DE CREDITO
       },
       // REDIRECCION
       {

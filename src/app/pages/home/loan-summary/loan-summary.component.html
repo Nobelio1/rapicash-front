@@ -1,30 +1,32 @@
-<cpt-titlebar [title]="'Reporte del Prestamo'"/>
+<cpt-titlebar [title]="title"/>
 <cpt-summary [reportePrestamo] = "true" [pagos] = "pagos"/>
 
-
-<h2 class="text-title-md2 font-bold text-black  ">
-    Acciones
-</h2>
-<div class="mt-5 rounded-sm border border-stroke bg-white shadow-default ">
-    <div class="p-4 sm:p-6 xl:p-9 text-end flex justify-between">
-        <button
-                class="inline-flex items-center gap-2.5 rounded bg-emerald-600 px-5 py-2.5 font-medium text-white hover:bg-opacity-90"
-                (click)="cerrarPrestamo()"
-        >
-            Cerrar Prestamo
-        </button>
-        <div class="space-x-4">
+@if (!existePre) {
+    <h2 class="text-title-md2 font-bold text-black  ">
+        Acciones
+    </h2>
+    <div class="mt-5 rounded-sm border border-stroke bg-white shadow-default ">
+        <div class="p-4 sm:p-6 xl:p-9 text-end flex justify-between">
             <button
-                    (click)="aplicarMora()"
-                    class="inline-flex items-center gap-2.5 rounded bg-red-600 px-7.5 py-2.5 font-medium text-white hover:bg-opacity-90">
-                Aplicar Mora
+                    class="inline-flex items-center gap-2.5 rounded bg-emerald-600 px-5 py-2.5 font-medium text-white hover:bg-opacity-90"
+                    (click)="cerrarPrestamo()"
+            >
+                Cerrar Prestamo
             </button>
-            @if (mensajeMora) {
-                <div class="text-center text-red-500">
-                    Mora Aplicada. Se le notifica a usuario por correo.
-                </div>
-            }
+            <div class="space-x-4">
+                <button
+                        (click)="aplicarMora()"
+                        class="inline-flex items-center gap-2.5 rounded bg-red-600 px-7.5 py-2.5 font-medium text-white hover:bg-opacity-90">
+                    Aplicar Mora
+                </button>
+                @if (mensajeMora) {
+                    <div class="text-center text-red-500">
+                        Mora Aplicada. Se le notifica a usuario por correo.
+                    </div>
+                }
+            </div>
         </div>
     </div>
-</div>
+}
+
 

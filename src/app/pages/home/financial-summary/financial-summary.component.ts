@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {SummaryComponent} from '../../../components/summary/summary.component';
 import {TitlebarComponent} from '../../../components/titlebar/titlebar.component';
 import {SolicitudService} from "../../../services/solicitud.service";
@@ -17,13 +17,31 @@ import {CommonModule} from "@angular/common";
     templateUrl: './financial-summary.component.html',
     styles: ``
 })
-export class FinancialSummaryComponent {
+export class FinancialSummaryComponent implements OnInit{
+
+    public estado: boolean = false
+    public documentacion: boolean = false;
+    public estadoDoc: boolean = false
+
 
     private solicitudService = inject(SolicitudService);
     private params = inject(ActivatedRoute)
     private router = inject(Router);
 
-    public documentacion: boolean = false;
+
+    ngOnInit(): void {
+        this.verifcarEstado()
+    }
+
+    verifcarEstado(){
+        this.solicitudService.obtenerSolicitud(+this.params.snapshot.paramMap.get('id')!).subscribe({
+            next: ({data}) => {
+                if(data.estadoFin !== 'PENDIENTE'){
+                    this.estadoDoc = true
+                }
+            }
+        })
+    }
 
     actualizarEstado(opt: number) {
         const estado: ActualizarEstado = {

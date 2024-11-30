@@ -42,7 +42,7 @@ export class PayComponent {
 
         this.pagoService.agregarPago(pago).subscribe({
             next: () => {
-                this.router.navigate(['brc/borrower-requests'])
+                this.router.navigate(['brc/loan-history'])
             },
             error: (message) => console.log('Error', message)
         })

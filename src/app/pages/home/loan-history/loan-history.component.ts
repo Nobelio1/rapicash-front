@@ -27,8 +27,15 @@ export class LoanHistoryComponent implements OnInit{
 
   listarPrestamos() {
     this.prestamoService.obtenerPrestamos().subscribe({
-      next: (data) => {
-        this.prestamos = data.data
+      next: ({data}) => {
+        const {rolId, usuarioId} = JSON.parse(localStorage.getItem(('user'))!)
+
+        if(rolId === 1){
+          this.prestamos = data.filter(prestamo => prestamo.usuarioId === usuarioId )
+        }else {
+          this.prestamos = data
+
+        }
       },
       error: (message) => console.log('Error', message)
     })

@@ -9,6 +9,7 @@ export interface Prestamo {
 
 export interface ListaPrestamo extends Prestamo{
     prestamoId:       number;
+    usuarioId: number
 }
 
 export interface ListaPrestamoResponse extends Result {

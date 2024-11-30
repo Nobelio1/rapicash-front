@@ -68,7 +68,7 @@ export class OficialSummaryComponent implements OnInit{
       estado: 'ACTIVO',
     }
     this.prestamoService.crearPrestamo(nuevoPrestamo).subscribe(res => {
-      this.router.navigate(['brc/official-requests']);
+      this.router.navigate(['brc/oficial-requests']);
     });
   }
 }
