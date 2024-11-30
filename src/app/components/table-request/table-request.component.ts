@@ -2,6 +2,7 @@ import {Component, inject, Input} from '@angular/core';
 import {Solicitud} from "../../interfaces/solicitud.interface";
 import {CommonModule} from "@angular/common";
 import {Router} from "@angular/router";
+import {ListaPrestamo} from "../../interfaces/prestamo.interface";
 
 @Component({
   selector: 'cpt-table-request',
@@ -13,6 +14,8 @@ import {Router} from "@angular/router";
 export class TableRequestComponent {
 
   @Input() solicitudes: Solicitud[] = [];
+  @Input() prestamos: ListaPrestamo[] = [];
+  @Input() showPrestamo: boolean = false;
 
   private router = inject(Router);
 

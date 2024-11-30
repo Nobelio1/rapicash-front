@@ -7,6 +7,19 @@
 </h2>
 <div class="mt-5 rounded-sm border border-stroke bg-white shadow-default ">
     <div class="p-4 sm:p-6 xl:p-9 text-end flex justify-between">
+        <div class="flex justify-center items-center gap-2">
+            <button
+                    (click)="generarContrato()"
+                    class="inline-flex items-center gap-2.5 rounded bg-emerald-600 px-5 py-2.5 font-medium text-white hover:bg-opacity-90">
+                Generar Contrato
+            </button>
+
+            @if(contratoEstado) {
+                <div class="px-4">
+                    Se verifico Se genero el contrato correactamente ✅. A la espera de la respueta del cliente
+                </div>
+            }
+        </div>
         <button
                 (click)="generarContrato()"
                 class="inline-flex items-center gap-2.5 rounded bg-emerald-600 px-5 py-2.5 font-medium text-white hover:bg-opacity-90">

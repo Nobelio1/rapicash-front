@@ -2,7 +2,7 @@ import {Component, inject} from '@angular/core';
 import {SummaryComponent} from '../../../components/summary/summary.component';
 import {TitlebarComponent} from '../../../components/titlebar/titlebar.component';
 import {SolicitudService} from "../../../services/solicitud.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {ContratoService} from "../../../services/contrato.service";
 import {PrestamoService} from "../../../services/prestamo.service";
 import {Prestamo} from "../../../interfaces/prestamo.interface";
@@ -19,15 +19,22 @@ import {Prestamo} from "../../../interfaces/prestamo.interface";
 })
 export class OficialSummaryComponent {
 
+  public contratoEstado: boolean = false;
+
   private solicitudService = inject(SolicitudService);
   private contratoService = inject(ContratoService);
   private prestamoService = inject(PrestamoService);
   private params = inject(ActivatedRoute);
+  private router = inject(Router);
+
 
   generarContrato(){
     const solicitudId = +this.params.snapshot.paramMap.get('id')!;
     this.contratoService.generarContraro(solicitudId).subscribe(res => {
-      console.log(res);
+      this.contratoEstado = true;
+        setTimeout(() => {
+            this.contratoEstado = false;
+        }, 5000)
     });
   }
 
@@ -37,13 +44,11 @@ export class OficialSummaryComponent {
       estadoFinan: 'FINALIZADO'
     }
     this.solicitudService.actualizarEstadoFinal(estado).subscribe(res => {
-      console.log(res);
       this.crearPrestamo()
     });
   }
 
   crearPrestamo(){
-    const solicitudId = +this.params.snapshot.paramMap.get('id')!;
     const nuevoPrestamo: Prestamo = {
       solicitudId: +this.params.snapshot.paramMap.get('id')!,
       cuotasPendientes: '12',
@@ -51,7 +56,7 @@ export class OficialSummaryComponent {
       estado: 'ACTIVO',
     }
     this.prestamoService.crearPrestamo(nuevoPrestamo).subscribe(res => {
-      console.log(res);
+      this.router.navigate(['brc/official-requests']);
     });
   }
 }
