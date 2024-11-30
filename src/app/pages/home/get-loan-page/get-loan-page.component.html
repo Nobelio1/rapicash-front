@@ -8,119 +8,120 @@
   <nav>
     <ol class="flex items-center text-gray-500 gap-2">
       <li>
-        <a class="font-medium" href="#">Operaciones /</a>
+        <a class="font-medium">Operaciones /</a>
       </li>
       <li class="font-medium text-emerald-600">Solicitar Prestamo</li>
     </ol>
   </nav>
 </div>
 
-<div class="grid grid-cols-1 gap-9 sm:grid-cols-2">
-  <div class="flex flex-col gap-9">
-    <div
-      class="rounded-sm border border-stroke bg-white shadow-default"
-    >
-      <div
-        class="border-b border-stroke px-6.5 py-4 "
-      >
-        <h3 class="font-medium text-black ">
-          Datos Personales
-        </h3>
-      </div>
-      <form [formGroup]="datosUsuario">
-        <div class="p-6.5">
-          <div class="mb-4.5 flex flex-col gap-6 xl:flex-row">
-            <div class="w-full xl:w-1/2">
-              <label
-                class="mb-3 block text-sm font-medium text-black "
-              >
-                Nombres
-              </label>
-              <input
-                type="text"
-                formControlName="nombres"
-                placeholder="Ingrese su nombre"
-                class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-emerald-600  active:border-emerald-600  disabled:cursor-default disabled:bg-whiter "
-              />
-            </div>
-
-            <div class="w-full xl:w-1/2">
-              <label
-                class="mb-3 block text-sm font-medium text-black"
-              >
-                Apellidos
-              </label>
-              <input
-                type="text"
-                formControlName="apellidos"
-                placeholder="Ingrese su apellido"
-                class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-emerald-600  active:border-emerald-600  disabled:cursor-default disabled:bg-whiter  "
-              />
-            </div>
-          </div>
-
-          <div class="mb-4.5">
-            <label
-              class="mb-3 block text-sm font-medium text-black"
+<div [ngClass]="{ 'grid-cols-1': existeInfo, 'sm:grid-cols-2': !existeInfo }">
+    @if (!existeInfo){
+        <div class="flex flex-col gap-9">
+            <div
+                    class="rounded-sm border border-stroke bg-white shadow-default"
             >
-              Correo Electrónico <span class="text-meta-1">*</span>
-            </label>
-            <input
-              type="email"
-              formControlName="correo"
-              placeholder="Ingrese su dirección de correo electrónico"
-              class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-emerald-600  active:border-emerald-600  disabled:cursor-default disabled:bg-whiter  "
-            />
-          </div>
+                <div
+                        class="border-b border-stroke px-6.5 py-4 "
+                >
+                    <h3 class="font-medium text-black ">
+                        Datos Personales
+                    </h3>
+                </div>
+                <form [formGroup]="datosUsuario">
+                    <div class="p-6.5">
+                        <div class="mb-4.5 flex flex-col gap-6 xl:flex-row">
+                            <div class="w-full xl:w-1/2">
+                                <label
+                                        class="mb-3 block text-sm font-medium text-black "
+                                >
+                                    Nombres
+                                </label>
+                                <input
+                                        type="text"
+                                        formControlName="nombres"
+                                        placeholder="Ingrese su nombre"
+                                        class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-emerald-600  active:border-emerald-600  disabled:cursor-default disabled:bg-whiter "
+                                />
+                            </div>
 
-          <div class="mb-4.5 flex flex-col gap-6 xl:flex-row">
-            <div class="w-full xl:w-1/2">
-              <label
-                class="mb-3 block text-sm font-medium text-black "
-              >
-                DNI
-              </label>
-              <input
-                type="text"
-                formControlName="dni"
-                placeholder="Ingrese su DNI"
-                class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-emerald-600  active:border-emerald-600  disabled:cursor-default disabled:bg-whiter "
-              />
+                            <div class="w-full xl:w-1/2">
+                                <label
+                                        class="mb-3 block text-sm font-medium text-black"
+                                >
+                                    Apellidos
+                                </label>
+                                <input
+                                        type="text"
+                                        formControlName="apellidos"
+                                        placeholder="Ingrese su apellido"
+                                        class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-emerald-600  active:border-emerald-600  disabled:cursor-default disabled:bg-whiter  "
+                                />
+                            </div>
+                        </div>
+
+                        <div class="mb-4.5">
+                            <label
+                                    class="mb-3 block text-sm font-medium text-black"
+                            >
+                                Correo Electrónico <span class="text-meta-1">*</span>
+                            </label>
+                            <input
+                                    type="email"
+                                    formControlName="correo"
+                                    placeholder="Ingrese su dirección de correo electrónico"
+                                    class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-emerald-600  active:border-emerald-600  disabled:cursor-default disabled:bg-whiter  "
+                            />
+                        </div>
+
+                        <div class="mb-4.5 flex flex-col gap-6 xl:flex-row">
+                            <div class="w-full xl:w-1/2">
+                                <label
+                                        class="mb-3 block text-sm font-medium text-black "
+                                >
+                                    DNI
+                                </label>
+                                <input
+                                        type="text"
+                                        formControlName="dni"
+                                        placeholder="Ingrese su DNI"
+                                        class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-emerald-600  active:border-emerald-600  disabled:cursor-default disabled:bg-whiter "
+                                />
+                            </div>
+
+                            <div class="w-full xl:w-1/2">
+                                <label
+                                        class="mb-3 block text-sm font-medium text-black"
+                                >
+                                    Celular
+                                </label>
+                                <input
+                                        type="text"
+                                        formControlName="celular"
+                                        placeholder="Ingrese su número de celular"
+                                        class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-emerald-600  active:border-emerald-600  disabled:cursor-default disabled:bg-whiter  "
+                                />
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <label
+                                    class="mb-3 block text-sm font-medium text-black "
+                            >
+                                Dirección
+                            </label>
+                            <textarea
+                                    rows="3"
+                                    formControlName="direccion"
+                                    placeholder="Ingresa tu dirección"
+                                    class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-emerald-600  active:border-emerald-600  disabled:cursor-default disabled:bg-whiter  "
+                            ></textarea>
+                        </div>
+                    </div>
+                </form>
             </div>
-
-            <div class="w-full xl:w-1/2">
-              <label
-                class="mb-3 block text-sm font-medium text-black"
-              >
-                Celular
-              </label>
-              <input
-                type="text"
-                formControlName="celular"
-                placeholder="Ingrese su número de celular"
-                class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-emerald-600  active:border-emerald-600  disabled:cursor-default disabled:bg-whiter  "
-              />
-            </div>
-          </div>
-
-          <div class="mb-6">
-            <label
-              class="mb-3 block text-sm font-medium text-black "
-            >
-              Dirección
-            </label>
-            <textarea
-              rows="3"
-              formControlName="direccion"
-              placeholder="Ingresa tu dirección"
-              class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-emerald-600  active:border-emerald-600  disabled:cursor-default disabled:bg-whiter  "
-            ></textarea>
-          </div>
         </div>
-      </form>
-    </div>
-  </div>
-
+    }
   <div class="flex flex-col gap-9">
     <div
       class="rounded-sm border border-stroke bg-white shadow-default "
