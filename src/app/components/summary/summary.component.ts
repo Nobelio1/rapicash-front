@@ -20,6 +20,8 @@ export class SummaryComponent implements OnInit {
     public solicitud: Solicitud = {} as Solicitud
     public usuario: UsuarioInfo = {} as UsuarioInfo
     public moraApicada: number = 0
+    public montoRestante: number = 0
+    public montoTotal: number = 0
 
     @Input() reportePrestamo: boolean = false
     @Input() pagos: Pagos[] = []
@@ -55,9 +57,17 @@ export class SummaryComponent implements OnInit {
         this.prestamoService.obtenerPrestamos().subscribe({
             next: (data) => {
                 this.moraApicada = data.data.find(prestamo => prestamo.prestamoId === solicitudId)?.mora || 0
+                this.valoresRestantes()
             },
             error: (message) => console.log('Error', message)
         })
+    }
+
+    valoresRestantes(){
+        const montoPagados = this.pagos.reduce((acc, item) => acc + item.monto, 0)
+        this.montoRestante = (this.solicitud.monto + this.solicitud.monto*0.2) - montoPagados
+
+        this.montoTotal = this.montoRestante + this.moraApicada
     }
 
 }
