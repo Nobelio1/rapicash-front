@@ -3,7 +3,7 @@ import {SummaryComponent} from '../../../components/summary/summary.component';
 import {TitlebarComponent} from '../../../components/titlebar/titlebar.component';
 import {SolicitudService} from "../../../services/solicitud.service";
 import {ActivatedRoute} from "@angular/router";
-import {ActualizarEstado} from "../../../interfaces/solicitud.interface";
+import {ActualizarEstado, Score} from "../../../interfaces/solicitud.interface";
 
 @Component({
   selector: 'app-credit-summary',
@@ -18,6 +18,9 @@ import {ActualizarEstado} from "../../../interfaces/solicitud.interface";
 export class CreditSummaryComponent {
   private solicitudService = inject(SolicitudService);
   private params = inject(ActivatedRoute)
+  public score: boolean = false;
+
+  public scoreData: Score = {} as Score;
 
   actualizarEstado(opt: number){
     const estado : ActualizarEstado = {
@@ -34,8 +37,11 @@ export class CreditSummaryComponent {
   emitirScore(){
     const {usuarioId} = JSON.parse(localStorage.getItem('user')!);
     this.solicitudService.obtenerScore(usuarioId).subscribe(res => {
-      console.log(res);
+      this.scoreData = res.data;
+      this.score = true;
+      setTimeout(() => {
+        this.score = false;
+      }, 3000)
     });
-
   }
 }
