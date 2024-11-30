@@ -21,6 +21,9 @@ export interface Solicitud {
     cargo:           string;
     inMensual:       number;
     monto:           number;
+    estadoFin:       string,
+    estadoCredito:   string,
+    estadoFinal:     string
 }
 
 export interface ActualizarEstado {

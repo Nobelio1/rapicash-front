@@ -2,7 +2,7 @@ import {Component, inject} from '@angular/core';
 import {SummaryComponent} from '../../../components/summary/summary.component';
 import {TitlebarComponent} from '../../../components/titlebar/titlebar.component';
 import {SolicitudService} from "../../../services/solicitud.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {ActualizarEstado, Score} from "../../../interfaces/solicitud.interface";
 
 @Component({
@@ -16,11 +16,13 @@ import {ActualizarEstado, Score} from "../../../interfaces/solicitud.interface";
   styles: ``
 })
 export class CreditSummaryComponent {
+  public score: boolean = false;
+  public scoreData: Score = {} as Score;
+
   private solicitudService = inject(SolicitudService);
   private params = inject(ActivatedRoute)
-  public score: boolean = false;
+  private router = inject(Router);
 
-  public scoreData: Score = {} as Score;
 
   actualizarEstado(opt: number){
     const estado : ActualizarEstado = {
@@ -30,7 +32,7 @@ export class CreditSummaryComponent {
     opt === 1 ? estado.estadoFinan = 'APROBADO' : estado.estadoFinan = 'RECHAZADO';
 
     this.solicitudService.actualizarEstadoCredito(estado).subscribe(res => {
-      console.log(res);
+      this.router.navigate(['brc/credit-requests'])
     });
   }
 
