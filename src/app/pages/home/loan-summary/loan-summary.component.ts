@@ -37,7 +37,11 @@ export class LoanSummaryComponent implements OnInit{
   }
 
   aplicarMora(){
-
+    const prestamoId = +this.params.snapshot.paramMap.get('id')!
+    this.prestamoService.actualizarMora({prestamoId: prestamoId, mora: 100}).subscribe({
+      next: (data) => console.log('Mora aplicada', data),
+      error: (message) => console.log('Error', message)
+    })
   }
 
   cerrarPrestamo(){
