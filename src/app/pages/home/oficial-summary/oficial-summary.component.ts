@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {SummaryComponent} from '../../../components/summary/summary.component';
 import {TitlebarComponent} from '../../../components/titlebar/titlebar.component';
 import {SolicitudService} from "../../../services/solicitud.service";
@@ -17,9 +17,10 @@ import {Prestamo} from "../../../interfaces/prestamo.interface";
   templateUrl: './oficial-summary.component.html',
   styles: ``
 })
-export class OficialSummaryComponent {
+export class OficialSummaryComponent implements OnInit{
 
   public contratoEstado: boolean = false;
+  public solitudEstado: boolean = false;
 
   private solicitudService = inject(SolicitudService);
   private contratoService = inject(ContratoService);
@@ -27,6 +28,17 @@ export class OficialSummaryComponent {
   private params = inject(ActivatedRoute);
   private router = inject(Router);
 
+  ngOnInit(): void {
+    this.validarSolicitud();
+  }
+
+  validarSolicitud(){
+    this.solicitudService.obtenerSolicitud(+this.params.snapshot.paramMap.get('id')!).subscribe(res => {
+      if(res.data.estadoFinal === 'FINALIZADO'){
+        this.solitudEstado = true;
+      }
+    })
+  }
 
   generarContrato(){
     const solicitudId = +this.params.snapshot.paramMap.get('id')!;

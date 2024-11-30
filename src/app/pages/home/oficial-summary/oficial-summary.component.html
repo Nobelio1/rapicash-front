@@ -10,7 +10,8 @@
         <div class="flex justify-center items-center gap-2">
             <button
                     (click)="generarContrato()"
-                    class="inline-flex items-center gap-2.5 rounded bg-emerald-600 px-5 py-2.5 font-medium text-white hover:bg-opacity-90">
+                    [disabled]="solitudEstado"
+                    class="inline-flex items-center gap-2.5 rounded bg-emerald-600 px-5 py-2.5 font-medium text-white hover:bg-opacity-90 disabled:opacity-50">
                 Generar Contrato
             </button>
 
@@ -23,7 +24,8 @@
         <div class="space-x-4">
             <button
                     (click)="finalizarSolicitud()"
-                    class="inline-flex items-center gap-2.5 rounded bg-primary px-7.5 py-2.5 font-medium text-white hover:bg-opacity-90">
+                    [disabled]="solitudEstado"
+                    class="inline-flex items-center gap-2.5 rounded bg-primary px-7.5 py-2.5 font-medium text-white hover:bg-opacity-90 disabled:opacity-50">
                 Depositar
             </button>
         </div>

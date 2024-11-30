@@ -2,7 +2,7 @@ import {Component, inject, OnInit} from '@angular/core';
 import {TitlebarComponent} from '../../../components/titlebar/titlebar.component';
 import {SummaryComponent} from '../../../components/summary/summary.component';
 import {ContratoService} from "../../../services/contrato.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {CommonModule} from "@angular/common";
 import {Contrato, EstadoContrato} from "../../../interfaces/contrato.interface";
 
@@ -25,6 +25,7 @@ export class BorrowerSummaryComponent implements OnInit{
 
   private contratoService = inject(ContratoService)
   private params = inject(ActivatedRoute)
+  private router = inject(Router)
 
   ngOnInit(): void {
     this.existeContrato()
@@ -51,7 +52,7 @@ export class BorrowerSummaryComponent implements OnInit{
       estado: opt === 1 ? 'ACEPTADO' : 'RECHAZADO'
     }
     this.contratoService.actualizarContrato(estado).subscribe({
-      next: () => console.log('Contrato actualizado'),
+      next: () => this.router.navigate(['brc/borrower-requests']),
       error: (message) => console.log('Error', message)
     })
   }

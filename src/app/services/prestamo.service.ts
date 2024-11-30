@@ -25,7 +25,7 @@ export class PrestamoService {
   }
 
   public actualizarEstado(estado: EstadoPrestamo ){
-    return this.http.post<ResponseDefault>(`${this.baseUrl}/prestamo/estado`, estado);
+    return this.http.put<ResponseDefault>(`${this.baseUrl}/prestamo/actualizar-estado`, estado);
   }
 
 }

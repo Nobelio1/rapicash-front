@@ -60,7 +60,7 @@ export class SidebarComponent implements OnInit {
             route: 'oficial-requests',
         },
         {
-            id: 1,
+            id: 2,
             name: 'Tabla de Prestamos',
             route: 'loan-history',
         },

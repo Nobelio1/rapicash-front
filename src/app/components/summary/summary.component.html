@@ -27,7 +27,7 @@
             </div>
         </div>
 
-        <div class="my-7.5 grid grid-cols-1 border border-stroke   xsm:grid-cols-2 sm:grid-cols-4">
+        <div class="my-7.5 grid grid-cols-1 border border-stroke   xsm:grid-cols-2 sm:grid-cols-5">
             <div class="border-b border-r border-stroke px-5 py-4 last:border-r-0   sm:border-b-0">
                 <h5 class="mb-1.5 font-bold text-black   ">
                      Ingreso Mesual:
@@ -44,9 +44,16 @@
 
             <div class="border-b border-r border-stroke px-5 py-4 last:border-r-0   xsm:border-b-0">
                 <h5 class="mb-1.5 font-bold text-black   ">
-                    Monto Solicitado: :
+                    Monto Solicitado:
                 </h5>
                 <span class="text-sm font-medium"> {{solicitud.monto}} </span>
+            </div>
+
+            <div class="border-b border-r border-stroke px-5 py-4 last:border-r-0   xsm:border-b-0">
+                <h5 class="mb-1.5 font-bold text-black   ">
+                    Monto a Pagar:
+                </h5>
+                <span class="text-sm font-medium"> {{solicitud.monto + solicitud.monto*0.2}} </span>
             </div>
 
             <div class="border-r border-stroke px-5 py-4 last:border-r-0  ">
