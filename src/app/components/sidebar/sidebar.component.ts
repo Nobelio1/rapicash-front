@@ -29,12 +29,6 @@ export class SidebarComponent implements OnInit {
             name: 'Pagar Prestamo',
             route: 'pay',
         },
-        {
-            id: 4,
-            name: 'Notificaciones',
-            route: 'notifications',
-
-        },
     ];
 
     public analistaFinancieroLinks: sidebarLink[] = [
