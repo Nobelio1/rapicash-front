@@ -1,0 +1,19 @@
+<cpt-titlebar [title]="'Mis Notificaciones'"/>
+
+<div>
+    @for (noti of notification; track noti.notificacionId) {
+        <div class="rounded-sm border border-stroke bg-white shadow-default">
+            <div class="flex flex-col gap-7.5 p-4 sm:p-6 xl:p-9">
+                <div>
+                    <h3 class="mb-5 text-title-md2 font-bold text-gray-700">
+                        {{ noti.titulo }}
+                    </h3>
+
+                    <p class="font-medium text-gray-700">
+                        {{ noti.descripcion }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+</div>

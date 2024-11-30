@@ -8,14 +8,17 @@
 <div class="mt-5 rounded-sm border border-stroke bg-white shadow-default ">
     <div class="p-4 sm:p-6 xl:p-9 text-end flex justify-between">
         <button
+                (click)="generarContrato()"
                 class="inline-flex items-center gap-2.5 rounded bg-emerald-600 px-5 py-2.5 font-medium text-white hover:bg-opacity-90">
             Generar Contrato
         </button>
         <div class="space-x-4">
             <button
+                    (click)="finalizarSolicitud()"
                     class="inline-flex items-center gap-2.5 rounded bg-primary px-7.5 py-2.5 font-medium text-white hover:bg-opacity-90">
                 Depositar
             </button>
         </div>
     </div>
 </div>
+

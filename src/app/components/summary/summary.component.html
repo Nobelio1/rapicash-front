@@ -7,24 +7,23 @@
                     Titular del Prestamo:
                 </p>
                 <h4 class="mb-3 text-xl font-bold text-black  ">
-                    Jose Gomez
+                    {{usuario.nombres}} {{usuario.apellidos}}
                 </h4>
                 <span class="block"><span class="font-medium text-black   ">Correo Electrónico:</span>
-                    contactexample.com</span>
-                <span class="mt-1.5 block"><span class="font-medium text-black   ">Dirección:</span>
-                      2972 Westheimer Rd. Santa Ana.</span>
+                    {{usuario.correo}}</span>
+                <span class="mt-1.5 block"><span class="font-medium text-black   ">Dirección:</span>{{usuario.direccion}}</span>
             </div>
 
             <div class="space-y-2">
-                <span class="block"><span class="font-medium text-black   ">DNI:</span> 23123113</span>
+                <span class="block"><span class="font-medium text-black   ">DNI:</span> {{usuario.dni}}</span>
                 <span class="block"><span class="font-medium text-black   ">Celular:</span>
-                      123213213123</span>
+                      {{usuario.celular}}</span>
                 <span class="block"><span class="font-medium text-black   ">Situación Laboral:</span>
-                    Trabajor independiente</span>
+                    Trabajor {{solicitud.estadoLaboral}}</span>
                 <span class="block"><span class="font-medium text-black   ">Empresa:</span>
-                      Tienda Feliz</span>
+                      {{solicitud.nombreEmpresa}}</span>
                 <span class="block"><span class="font-medium text-black   ">Cargo:</span>
-                      Gerente</span>
+                      {{solicitud.cargo}}</span>
             </div>
         </div>
 
@@ -33,7 +32,7 @@
                 <h5 class="mb-1.5 font-bold text-black   ">
                      Ingreso Mesual:
                 </h5>
-                <span class="text-sm font-medium"> 12300 PEN </span>
+                <span class="text-sm font-medium"> {{solicitud.inMensual}}</span>
             </div>
 
             <div class="border-b border-stroke px-5 py-4 last:border-r-0   sm:border-b-0 sm:border-r">
@@ -47,7 +46,7 @@
                 <h5 class="mb-1.5 font-bold text-black   ">
                     Cuotas :
                 </h5>
-                <span class="text-sm font-medium"> 12 </span>
+                <span class="text-sm font-medium"> {{solicitud.cuota}} </span>
             </div>
 
             <div class="border-r border-stroke px-5 py-4 last:border-r-0  ">
@@ -58,78 +57,74 @@
             </div>
         </div>
 
-        <div class="border border-stroke  ">
-            <div class="max-w-full overflow-x-auto">
-                <div class="min-w-[670px]">
-                    <div class="grid grid-cols-12 border-b border-stroke py-3.5 pl-5 pr-6  ">
-                        <div class="col-span-3">
-                            <h5 class="font-medium text-black   ">
-                                Nro Cuota
-                            </h5>
+        @if (reportePrestamo) {
+            <div class="border border-stroke  ">
+                <div class="max-w-full overflow-x-auto">
+                    <div class="min-w-[670px]">
+                        <div class="grid grid-cols-12 border-b border-stroke py-3.5 pl-5 pr-6  ">
+                            <div class="col-span-3">
+                                <h5 class="font-medium text-black   ">
+                                    Nro Cuota
+                                </h5>
+                            </div>
+
+                            <div class="col-span-5">
+                                <h5 class="font-medium text-black   ">
+                                    Nro Boleta
+                                </h5>
+                            </div>
+
+                            <div class="col-span-2">
+                                <h5 class="font-medium text-black   ">
+                                    Monto Ingresado
+                                </h5>
+                            </div>
+
+                            <div class="col-span-2">
+                                <h5 class="font-medium text-black   ">
+                                    Fecha de Pago
+                                </h5>
+                            </div>
                         </div>
 
-                        <div class="col-span-4">
-                            <h5 class="font-medium text-black   ">
-                                Monto Ingresado
-                            </h5>
-                        </div>
+                        @for (p of pagos; track p.pagoId) {
+                            <div class="grid grid-cols-12 border-b border-stroke py-3.5 pl-5 pr-6  ">
+                                <div class="col-span-3">
+                                    <p class="font-medium">{{p.cuota}}</p>
+                                </div>
 
-                        <div class="col-span-2">
-                            <h5 class="font-medium text-black   ">
-                                Fecha de Pago
-                            </h5>
-                        </div>
+                                <div class="col-span-5">
+                                    <p class="font-medium">{{p.nroBoleta}}</p>
+                                </div>
 
-                        <div class="col-span-2">
-                            <h5 class="font-medium text-black   ">
-                                Fecha de vencimiento
-                            </h5>
-                        </div>
+                                <div class="col-span-2">
+                                    <p class="font-medium"> S/ {{p.monto}}</p>
+                                </div>
 
-                        <div class="col-span-1">
-                            <h5 class="text-right font-medium text-black   ">
-                                Estado
-                            </h5>
-                        </div>
+                                <div class="col-span-2">
+                                    <p class="font-medium">{{p.fechaPago}}</p>
+                                </div>
+
+                            </div>
+                        }
+
                     </div>
-
-                    <div class="grid grid-cols-12 border-b border-stroke py-3.5 pl-5 pr-6  ">
-                        <div class="col-span-3">
-                            <p class="font-medium">Cuota 1</p>
-                        </div>
-
-                        <div class="col-span-4">
-                            <p class="font-medium">200 PEN</p>
-                        </div>
-
-                        <div class="col-span-2">
-                            <p class="font-medium">21/11/2024</p>
-                        </div>
-
-                        <div class="col-span-2">
-                            <p class="font-medium">31/11/2024</p>
-                        </div>
-
-                        <div class="col-span-1">
-                            <p class="text-right font-medium">Aprobado</p>
-                        </div>
-                    </div>
-
                 </div>
-            </div>
 
-            <div class="flex justify-end p-6">
-                <div class="w-full max-w-65">
+                <div class="flex justify-end p-6">
+                    <div class="w-full max-w-65">
 
-                    <p class="flex justify-between pt-5">
+                        <p class="flex justify-between pt-5">
                         <span class="font-medium text-black">
                           Mora Aplicada:
                         </span>
-                        <span class="font-bold text-red-500 text-xl"> $4475 </span>
-                    </p>
+                            <span class="font-bold text-red-500 text-xl"> S/ {{moraApicada}} </span>
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
+        }
+
     </div>
 </div>
 

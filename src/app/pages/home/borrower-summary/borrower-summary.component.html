@@ -1,3 +1,43 @@
 <cpt-titlebar [title]="'Resumen de la solicitud'"/>
 <cpt-summary/>
 
+@if (contratoE) {
+    <h2 class="text-title-md2 font-bold text-black  ">
+        Contrato
+    </h2>
+    <div class="mt-5 rounded-sm border border-stroke bg-white shadow-default ">
+
+        <div class="flex flex-wrap justify-between gap-5">
+            <div class="space-y-2 px-6 py-4">
+                <span class="block"><span class="font-medium text-black   ">Contrato:</span> {{contrato.contratoId}}</span>
+                <span class="block"><span class="font-medium text-black   ">Solicitud:</span>
+                    {{ contrato.solicitudId }}</span>
+                <span class="block"><span class="font-medium text-black   ">Estado:</span>
+                    {{ contrato.estado }}</span>
+                <span class="block"><span class="font-medium text-black   ">Fecha de Pago:</span>
+                    {{contrato.fechaPago}}</span>
+                <span class="block"><span class="font-medium text-black   ">Fecha de Creación:</span>
+                      {{contrato.fechaCreacion | date: 'dd/MM/yyyy' }}</span>
+            </div>
+        </div>
+
+        <div class="p-4 sm:p-6 xl:p-9 text-end flex justify-end">
+            <div class="space-x-4">
+                <button
+                        [disabled]="estadoCerrado"
+                        (click)="actualizarContrato(2)"
+                        class="inline-flex items-center gap-2.5 rounded bg-red-600 px-7.5 py-2.5 font-medium text-white hover:bg-opacity-90 disabled:opacity-50">
+                    Recharzar
+                </button>
+                <button
+                        [disabled]="estadoCerrado"
+                        (click)="actualizarContrato(1)"
+                        class="inline-flex items-center gap-2.5 rounded bg-primary px-7.5 py-2.5 font-medium text-white hover:bg-opacity-90 disabled:opacity-50 ">
+                    Firmar contrato
+                </button>
+            </div>
+        </div>
+    </div>
+}
+
+

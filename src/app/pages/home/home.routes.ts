@@ -23,6 +23,14 @@ const CORE_ROUTES: Routes = [
         path: 'bSummary/:id',
         loadComponent: () => import('./borrower-summary/borrower-summary.component').then(m => m.BorrowerSummaryComponent)
       },
+      {
+        path: 'notifications',
+        loadComponent: () => import('./notifications/notifications.component').then(m => m.NotificationsComponent)
+      },
+      {
+        path: 'pay',
+        loadComponent: () => import('./pay/pay.component').then(m => m.PayComponent)
+      },
       //ANALISTA FINANCIERO
       {
         path: 'financial-requests',

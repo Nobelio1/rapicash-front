@@ -27,7 +27,7 @@
           Datos Personales
         </h3>
       </div>
-      <form>
+      <form [formGroup]="datosUsuario">
         <div class="p-6.5">
           <div class="mb-4.5 flex flex-col gap-6 xl:flex-row">
             <div class="w-full xl:w-1/2">
@@ -38,6 +38,7 @@
               </label>
               <input
                 type="text"
+                formControlName="nombres"
                 placeholder="Ingrese su nombre"
                 class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-emerald-600  active:border-emerald-600  disabled:cursor-default disabled:bg-whiter "
               />
@@ -51,6 +52,7 @@
               </label>
               <input
                 type="text"
+                formControlName="apellidos"
                 placeholder="Ingrese su apellido"
                 class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-emerald-600  active:border-emerald-600  disabled:cursor-default disabled:bg-whiter  "
               />
@@ -65,6 +67,7 @@
             </label>
             <input
               type="email"
+              formControlName="correo"
               placeholder="Ingrese su dirección de correo electrónico"
               class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-emerald-600  active:border-emerald-600  disabled:cursor-default disabled:bg-whiter  "
             />
@@ -79,6 +82,7 @@
               </label>
               <input
                 type="text"
+                formControlName="dni"
                 placeholder="Ingrese su DNI"
                 class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-emerald-600  active:border-emerald-600  disabled:cursor-default disabled:bg-whiter "
               />
@@ -92,6 +96,7 @@
               </label>
               <input
                 type="text"
+                formControlName="celular"
                 placeholder="Ingrese su número de celular"
                 class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-emerald-600  active:border-emerald-600  disabled:cursor-default disabled:bg-whiter  "
               />
@@ -106,6 +111,7 @@
             </label>
             <textarea
               rows="3"
+              formControlName="direccion"
               placeholder="Ingresa tu dirección"
               class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-emerald-600  active:border-emerald-600  disabled:cursor-default disabled:bg-whiter  "
             ></textarea>
@@ -126,7 +132,7 @@
           Datos para el Préstamo
         </h3>
       </div>
-      <form action="#">
+      <form [formGroup]="datosPrestamo" (ngSubmit)="generarSolicitud()" >
         <div class="p-6.5">
           <div class="mb-4.5">
             <label
@@ -138,14 +144,14 @@
               class="relative z-20 bg-transparent "
             >
               <select
+                      formControlName = "estadoLaboralId"
                 class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent px-5 py-3 outline-none transition focus:border-emerald-600  active:border-emerald-600  "
               >
                 <option value="" class="text-body">
-                  Type your subject
+                  Elija su situación laboral
                 </option>
-                <option value="" class="text-body">USA</option>
-                <option value="" class="text-body">UK</option>
-                <option value="" class="text-body">Canada</option>
+                <option value="1" class="text-body">Independiente</option>
+                <option value="2" class="text-body">Dependete</option>
               </select>
               <span
                 class="absolute right-4 top-1/2 z-30 -translate-y-1/2"
@@ -178,7 +184,8 @@
               Nombre de la Empresa
             </label>
             <input
-              type="email"
+              type="text"
+              formControlName = "nombreEmpresa"
               placeholder="Ingrese el nombre de la empresa"
               class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-emerald-600  active:border-emerald-600  disabled:cursor-default disabled:bg-whiter  "
             />
@@ -192,7 +199,8 @@
             </label>
             <input
               type="text"
-              placeholder="Ingrsa su cargo"
+              formControlName = "cargo"
+              placeholder="Ingresa su cargo"
               autocomplete="password"
               class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-emerald-600  active:border-emerald-600  disabled:cursor-default disabled:bg-whiter  "
             />
@@ -206,6 +214,7 @@
             </label>
             <input
               type="text"
+              formControlName = "inMensual"
               placeholder="Ingrese su ingreso mensual"
               autocomplete="re-enter-password"
               class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-emerald-600  active:border-emerald-600  disabled:cursor-default disabled:bg-whiter  "
@@ -220,6 +229,7 @@
             </label>
             <input
               type="text"
+              formControlName = "monto"
               placeholder="Ingrese su ingrese del prestamo"
               autocomplete="re-enter-password"
               class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-emerald-600  active:border-emerald-600  disabled:cursor-default disabled:bg-whiter  "
@@ -237,13 +247,15 @@
             >
               <select
                 class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent px-5 py-3 outline-none transition focus:border-emerald-600  active:border-emerald-600  "
+                formControlName = "cuotaId"
               >
                 <option value="" class="text-body">
-                  Type your subject
+                  Elija sus cuotas
                 </option>
-                <option value="" class="text-body">USA</option>
-                <option value="" class="text-body">UK</option>
-                <option value="" class="text-body">Canada</option>
+                <option value="1" class="text-body">6</option>
+                <option value="2" class="text-body">12</option>
+                <option value="3" class="text-body">24</option>
+                <option value="4" class="text-body">36</option>
               </select>
               <span
                 class="absolute right-4 top-1/2 z-30 -translate-y-1/2"
@@ -269,7 +281,7 @@
             </div>
           </div>
 
-          <button
+          <button type="submit"
             class="flex w-full justify-center rounded bg-emerald-600 p-3 font-medium text-gray hover:bg-opacity-90"
           >
             Solicitar
