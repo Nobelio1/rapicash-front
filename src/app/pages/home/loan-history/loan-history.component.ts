@@ -32,9 +32,9 @@ export class LoanHistoryComponent implements OnInit{
 
         if(rolId === 1){
           this.prestamos = data.filter(prestamo => prestamo.usuarioId === usuarioId )
+          console.log(this.prestamos)
         }else {
           this.prestamos = data
-
         }
       },
       error: (message) => console.log('Error', message)
