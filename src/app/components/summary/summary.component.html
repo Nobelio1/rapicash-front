@@ -27,19 +27,12 @@
             </div>
         </div>
 
-        <div class="my-7.5 grid grid-cols-1 border border-stroke   xsm:grid-cols-2 sm:grid-cols-4">
+        <div class="my-7.5 grid grid-cols-1 border border-stroke   xsm:grid-cols-2 sm:grid-cols-3">
             <div class="border-b border-r border-stroke px-5 py-4 last:border-r-0   sm:border-b-0">
                 <h5 class="mb-1.5 font-bold text-black   ">
                      Ingreso Mesual:
                 </h5>
                 <span class="text-sm font-medium"> {{solicitud.inMensual}}</span>
-            </div>
-
-            <div class="border-b border-stroke px-5 py-4 last:border-r-0   sm:border-b-0 sm:border-r">
-                <h5 class="mb-1.5 font-bold text-black   ">
-                    Estado :
-                </h5>
-                <span class="text-sm font-medium"> Esperando Aprobación de A.Financiero </span>
             </div>
 
             <div class="border-b border-r border-stroke px-5 py-4 last:border-r-0   xsm:border-b-0">
@@ -51,9 +44,9 @@
 
             <div class="border-r border-stroke px-5 py-4 last:border-r-0  ">
                 <h5 class="mb-1.5 font-bold text-black   ">
-                    Cuotas Pagadas :
+                    Solicitud de Prestamo:
                 </h5>
-                <span class="text-sm font-medium"> 7 </span>
+                <span class="text-sm font-medium"> {{solicitud.estadoFinal}} </span>
             </div>
         </div>
 

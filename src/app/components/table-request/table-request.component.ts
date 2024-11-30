@@ -36,7 +36,10 @@ export class TableRequestComponent {
         this.router.navigate([`brc/oSummary/${id}`]);
         break;
     }
-
   }
+
+    verPrestamo(id: number){
+        this.router.navigate([`brc/lSummary/${id}`]);
+    }
 
 }
